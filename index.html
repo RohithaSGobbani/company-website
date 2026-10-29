@@ -1,0 +1,1569 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NexaTech builds innovative digital solutions for ambitious businesses.">
+  <title>NexaTech | Build What's Next</title>
+
+  <style>
+    /* ---------- GLOBAL STYLES ---------- */
+    :root {
+      --primary: #087cff;
+      --secondary: #7545ff;
+      --dark: #071126;
+      --text: #111a32;
+      --muted: #65718a;
+      --light: #f3f7ff;
+      --white: #ffffff;
+      --border: #e5ebf5;
+      --gradient: linear-gradient(110deg, #087cff, #7545ff);
+      --shadow: 0 12px 35px rgba(24, 65, 130, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .gradient-text {
+      color: #4c66ff;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--primary);
+      background: #e9f3ff;
+      padding: 5px 12px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -1.4px;
+      margin-bottom: 16px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 36px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 23px;
+      border: 0;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--gradient);
+      box-shadow: 0 7px 20px rgba(73, 86, 255, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(73, 86, 255, 0.35);
+    }
+
+    .btn-outline {
+      color: white;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.06);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,.14);
+    }
+
+    /* ---------- NAVIGATION ---------- */
+    .navbar {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,.09);
+      background: rgba(5, 15, 35, .88);
+      backdrop-filter: blur(16px);
+      transition: .3s;
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 22px;
+      font-weight: 850;
+      letter-spacing: -.8px;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: var(--gradient);
+      font-size: 22px;
+      font-weight: 900;
+      transform: skew(-8deg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: #d9e1f4;
+      transition: .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #70c8ff;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-actions .btn {
+      padding: 10px 18px;
+      font-size: 12px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      color: white;
+      border: 0;
+      font-size: 27px;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 660px;
+      padding: 145px 0 80px;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(ellipse at 80% 35%, rgba(92, 38, 190, .28), transparent 36%),
+        radial-gradient(ellipse at 8% 85%, rgba(0, 125, 255, .17), transparent 40%),
+        #061127;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      right: -150px;
+      top: 30px;
+      border: 1px solid rgba(79, 120, 255, .18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 50px rgba(79,120,255,.025),
+                  0 0 0 100px rgba(79,120,255,.02);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(77, 173, 255, .3);
+      background: rgba(15, 114, 205, .12);
+      color: #8bd7ff;
+      border-radius: 30px;
+      padding: 7px 14px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      background: #4ce8c0;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #4ce8c0;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 5.2vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -2.8px;
+      margin-bottom: 24px;
+    }
+
+    .hero-copy {
+      color: #b9c6df;
+      font-size: 16px;
+      max-width: 510px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+      margin-bottom: 42px;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .hero-stat span {
+      color: #9cacc8;
+      font-size: 12px;
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: 15px;
+    }
+
+    .hero-image {
+      height: 385px;
+      border-radius: 25px;
+      border: 1px solid rgba(139, 168, 255, .35);
+      box-shadow: 0 25px 70px rgba(0,0,0,.35);
+    }
+
+    .floating-card {
+      position: absolute;
+      padding: 16px 19px;
+      border: 1px solid rgba(163, 188, 255, .22);
+      border-radius: 15px;
+      background: rgba(12, 30, 66, .88);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.2);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .floating-card.top {
+      top: 0;
+      left: -20px;
+    }
+
+    .floating-card.bottom {
+      bottom: 0;
+      right: -15px;
+      animation-delay: 1.5s;
+    }
+
+    .floating-card small {
+      display: block;
+      color: #b8c7e8;
+      font-size: 11px;
+    }
+
+    .floating-card strong {
+      color: #50e6c1;
+      font-size: 23px;
+    }
+
+    .floating-icon {
+      font-size: 25px;
+      margin-right: 7px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image {
+      height: 400px;
+      border-radius: 20px;
+    }
+
+    .image-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      padding: 20px;
+      border-radius: 14px;
+      color: white;
+      background: rgba(6, 17, 39, .85);
+      backdrop-filter: blur(10px);
+    }
+
+    .image-caption strong {
+      display: block;
+      font-size: 19px;
+    }
+
+    .image-caption span {
+      font-size: 13px;
+      color: #c4d1e9;
+    }
+
+    .about-copy {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+
+    .feature {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      transition: .25s;
+    }
+
+    .feature:hover {
+      border-color: #aacbff;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 39px;
+      height: 39px;
+      border-radius: 11px;
+      background: #eaf3ff;
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      margin-bottom: 11px;
+    }
+
+    .feature h3 {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .feature p {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services {
+      background: linear-gradient(180deg, #eff6ff, #f8fbff);
+    }
+
+    .section-top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 35px;
+    }
+
+    .section-top .section-description {
+      margin: 0 0 7px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 25px 22px;
+      border: 1px solid #e0eaf9;
+      border-radius: 17px;
+      background: white;
+      transition: .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: #b4d1ff;
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #e3f1ff, #eee7ff);
+      color: #326dff;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .service-link {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: white;
+      transition: .3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-image-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-image {
+      height: 245px;
+      transition: transform .5s;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.045);
+    }
+
+    .project-info {
+      padding: 22px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: #edf4ff;
+      color: #2765e9;
+      padding: 5px 10px;
+      border-radius: 30px;
+      font-size: 10px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .project-info h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    /* ---------- METRICS ---------- */
+    .metrics {
+      color: white;
+      padding: 60px 0;
+      background:
+        radial-gradient(ellipse at 85% 20%, rgba(106,65,255,.25), transparent 45%),
+        #07142e;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      text-align: center;
+    }
+
+    .metric-icon {
+      font-size: 30px;
+      color: #38aaff;
+      margin-bottom: 10px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 36px;
+      letter-spacing: -1px;
+    }
+
+    .metric span {
+      color: #b6c5e1;
+      font-size: 13px;
+    }
+
+    /* ---------- TESTIMONIAL ---------- */
+    .testimonial {
+      text-align: center;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .quote-mark {
+      font-size: 55px;
+      color: #7e69ff;
+      line-height: 1;
+    }
+
+    .testimonial blockquote {
+      font-size: clamp(20px, 3vw, 28px);
+      line-height: 1.5;
+      letter-spacing: -.5px;
+      margin: 20px 0 25px;
+    }
+
+    .testimonial-person {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .testimonial-person strong {
+      display: block;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact {
+      background: var(--light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    .contact-detail .feature-icon {
+      flex-shrink: 0;
+      margin: 0;
+    }
+
+    .contact-detail strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .contact-detail span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .contact-form {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #dce4f0;
+      border-radius: 10px;
+      background: #fbfcff;
+      color: var(--text);
+      font: inherit;
+      font-size: 13px;
+      outline: none;
+      transition: .2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(8,124,255,.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 115px;
+    }
+
+    .form-message {
+      margin-top: 12px;
+      color: #087c56;
+      font-size: 13px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      background: #061127;
+      color: white;
+      padding: 55px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 35px;
+      padding-bottom: 40px;
+    }
+
+    .footer-about p {
+      color: #9aabc9;
+      max-width: 270px;
+      font-size: 13px;
+      margin: 18px 0;
+    }
+
+    .footer h4 {
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 11px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: #a7b6d0;
+      transition: .2s;
+    }
+
+    .footer-links a:hover {
+      color: #69baff;
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .socials a {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #263655;
+      border-radius: 10px;
+      color: #d6e4ff;
+      transition: .2s;
+    }
+
+    .socials a:hover {
+      background: var(--gradient);
+      border-color: transparent;
+    }
+
+    .footer-bottom {
+      padding-top: 20px;
+      border-top: 1px solid #1c2a45;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      color: #899bb9;
+      font-size: 12px;
+    }
+
+    .back-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 50;
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: white;
+      background: var(--gradient);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: .25s;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 950px) {
+      .nav-links { gap: 16px; }
+      .hero-grid { gap: 25px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { gap: 30px; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner { min-height: 66px; }
+      .menu-toggle { display: block; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 66px;
+        left: 0;
+        right: 0;
+        padding: 22px 5%;
+        background: #081630;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        border-bottom: 1px solid #24324c;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,.07);
+      }
+
+      .nav-actions .btn { display: none; }
+
+      .hero {
+        padding: 120px 0 70px;
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 { letter-spacing: -1.8px; }
+      .hero-visual { margin: 15px 10px 20px; }
+      .hero-image { height: 300px; }
+      .floating-card.top { left: -10px; }
+      .floating-card.bottom { right: -10px; }
+
+      .hero-stats { gap: 22px; }
+      .hero-stat strong { font-size: 21px; }
+
+      .section { padding: 65px 0; }
+      .about-image { height: 330px; }
+
+      .section-top {
+        display: block;
+      }
+
+      .section-top .section-description { margin-bottom: 20px; }
+
+      .projects-grid { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); row-gap: 35px; }
+      .metric strong { font-size: 30px; }
+      .contact-grid { gap: 30px; }
+    }
+
+    @media (max-width: 420px) {
+      .logo { font-size: 19px; }
+      .hero h1 { font-size: 39px; }
+      .hero-buttons .btn { padding: 11px 15px; }
+      .about-features,
+      .services-grid,
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 25px 15px; }
+      .contact-form { padding: 20px; }
+    }
+
+    /* Respect reduced-motion accessibility settings */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" aria-label="NexaTech home">
+        <span class="logo-mark">N</span>
+        NexaTech
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#careers">Careers</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="#contact">Let's Talk ↗</a>
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="hero-badge">
+            <span class="pulse"></span>
+            INNOVATION FOR A BETTER TOMORROW
+          </div>
+
+          <h1>
+            Turning Ideas Into
+            <span class="gradient-text">Impactful Solutions.</span>
+          </h1>
+
+          <p class="hero-copy">
+            We build modern digital products that help businesses grow,
+            simplify complex problems, and turn ambitious ideas into reality.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Get Started ↗</a>
+            <a href="#projects" class="btn btn-outline">Explore Our Work →</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>100+</strong>
+              <span>Happy Clients</span>
+            </div>
+            <div class="hero-stat">
+              <strong>250+</strong>
+              <span>Projects Delivered</span>
+            </div>
+            <div class="hero-stat">
+              <strong>5+</strong>
+              <span>Years of Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85"
+            alt="Modern technology company office"
+          >
+
+          <div class="floating-card top">
+            <small><span class="floating-icon">↗</span> Business Growth</small>
+            <strong>+200%</strong>
+            <small>Growth-focused solutions</small>
+          </div>
+
+          <div class="floating-card bottom">
+            <span class="floating-icon">✦</span>
+            <strong style="font-size:16px;color:white">Built for Impact</strong>
+            <small>Technology with purpose</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-image-wrap reveal">
+          <img
+            class="about-image"
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85"
+            alt="Team collaborating on a technology project"
+            loading="lazy"
+          >
+          <div class="image-caption">
+            <strong>Ideas. People. Technology.</strong>
+            <span>Working together to build what's next.</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <span class="section-label">ABOUT NEXATECH</span>
+          <h2 class="section-heading">
+            We Build Technology for a
+            <span class="gradient-text">Brighter Future.</span>
+          </h2>
+
+          <p class="about-copy">
+            NexaTech is a forward-thinking technology company focused on
+            delivering innovative, reliable, and scalable digital solutions.
+            We combine technology, creativity, and strategy to help businesses
+            solve real problems and achieve long-term growth.
+          </p>
+
+          <div class="about-features">
+            <div class="feature">
+              <div class="feature-icon">◎</div>
+              <h3>Our Mission</h3>
+              <p>Empower businesses through useful, innovative technology.</p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">◈</div>
+              <h3>Our Vision</h3>
+              <p>Make digital transformation accessible and impactful.</p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">♡</div>
+              <h3>Our Values</h3>
+              <p>Integrity, collaboration, quality, and customer success.</p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">♧</div>
+              <h3>Our People</h3>
+              <p>Curious minds building solutions that matter.</p>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn btn-primary">Know More About Us ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-top reveal">
+          <div>
+            <span class="section-label">OUR SERVICES</span>
+            <h2 class="section-heading">What We Do</h2>
+          </div>
+          <p class="section-description">
+            Powerful technology services designed to help your business thrive
+            in a digital-first world.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon">⌘</div>
+            <h3>Web Development</h3>
+            <p>Fast, responsive, and scalable websites tailored to your business needs.</p>
+            <a class="service-link" href="#contact">Explore Service ↗</a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">▣</div>
+            <h3>Mobile Applications</h3>
+            <p>Intuitive mobile experiences for Android and iOS users.</p>
+            <a class="service-link" href="#contact">Explore Service ↗</a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">☁</div>
+            <h3>Cloud Solutions</h3>
+            <p>Secure infrastructure, reliable deployments, and scalable systems.</p>
+            <a class="service-link" href="#contact">Explore Service ↗</a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">▦</div>
+            <h3>AI & Data Solutions</h3>
+            <p>Turn your data into insights, intelligent products, and better decisions.</p>
+            <a class="service-link" href="#contact">Explore Service ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-top reveal">
+          <div>
+            <span class="section-label">OUR PORTFOLIO</span>
+            <h2 class="section-heading">Work That Makes an Impact.</h2>
+          </div>
+          <a href="#contact" class="btn btn-primary">Start a Project ↗</a>
+        </div>
+
+        <p class="section-description reveal">
+          A selection of example projects that demonstrate the kind of digital
+          experiences our team can create.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-image-wrap">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85"
+                alt="E-commerce shopping experience"
+                loading="lazy"
+              >
+            </div>
+            <div class="project-info">
+              <span class="project-tag">WEB APPLICATION</span>
+              <h3>E-Commerce Platform</h3>
+              <p>A modern online shopping experience with product discovery and streamlined checkout.</p>
+              <a href="#contact" class="service-link">Discuss a Similar Project ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-image-wrap">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85"
+                alt="Healthcare technology"
+                loading="lazy"
+              >
+            </div>
+            <div class="project-info">
+              <span class="project-tag">HEALTHCARE</span>
+              <h3>Healthcare Management</h3>
+              <p>A digital concept for managing patient information and simplifying healthcare workflows.</p>
+              <a href="#contact" class="service-link">Discuss a Similar Project ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-image-wrap">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85"
+                alt="Digital learning platform"
+                loading="lazy"
+              >
+            </div>
+            <div class="project-info">
+              <span class="project-tag">EDTECH</span>
+              <h3>Learning Management</h3>
+              <p>A learning platform concept that makes educational content easier to access and manage.</p>
+              <a href="#contact" class="service-link">Discuss a Similar Project ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-image-wrap">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=85"
+                alt="Analytics dashboards and data visualizations"
+                loading="lazy"
+              >
+            </div>
+            <div class="project-info">
+              <span class="project-tag">DATA & ANALYTICS</span>
+              <h3>Business Analytics Dashboard</h3>
+              <p>An analytics dashboard concept for monitoring performance and supporting data-driven decisions.</p>
+              <a href="#contact" class="service-link">Discuss a Similar Project ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS -->
+    <section class="metrics" id="careers">
+      <div class="container metrics-grid">
+        <div class="metric reveal">
+          <div class="metric-icon">♧</div>
+          <strong data-target="100" data-suffix="+">0</strong>
+          <span>Happy Clients</span>
+        </div>
+
+        <div class="metric reveal">
+          <div class="metric-icon">▤</div>
+          <strong data-target="250" data-suffix="+">0</strong>
+          <span>Projects Delivered</span>
+        </div>
+
+        <div class="metric reveal">
+          <div class="metric-icon">✦</div>
+          <strong data-target="5" data-suffix="+">0</strong>
+          <span>Years of Experience</span>
+        </div>
+
+        <div class="metric reveal">
+          <div class="metric-icon">★</div>
+          <strong data-target="98" data-suffix="%">0</strong>
+          <span>Client Satisfaction</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="section">
+      <div class="container testimonial reveal">
+        <span class="section-label">WHY WORK WITH US</span>
+        <div class="quote-mark">“</div>
+        <blockquote>
+          Great technology is not just about writing code.
+          It's about understanding people, solving meaningful problems,
+          and building something that lasts.
+        </blockquote>
+        <div class="testimonial-person">
+          <strong>The NexaTech Philosophy</strong>
+          Technology with purpose. Results with impact.
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <span class="section-label">GET IN TOUCH</span>
+          <h2 class="section-heading">
+            Have an Idea?
+            <span class="gradient-text">Let's Build It.</span>
+          </h2>
+
+          <p class="section-description">
+            Tell us about your goals. Let's explore how technology can help
+            you turn your next big idea into reality.
+          </p>
+
+          <div class="contact-detail">
+            <div class="feature-icon">✉</div>
+            <div>
+              <strong>Email Us</strong>
+              <span>hello@nexatech.example</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="feature-icon">⌖</div>
+            <div>
+              <strong>Our Location</strong>
+              <span>Bengaluru, India</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="feature-icon">◷</div>
+            <div>
+              <strong>Business Hours</strong>
+              <span>Monday – Friday, 9 AM – 6 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <h3 style="font-size:22px;margin-bottom:22px;">Tell Us About Your Project</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input id="name" name="name" type="text"
+                     placeholder="Your name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input id="email" name="email" type="email"
+                     placeholder="you@example.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">What do you need?</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Web Development</option>
+              <option>Mobile Applications</option>
+              <option>Cloud Solutions</option>
+              <option>AI & Data Solutions</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Details *</label>
+            <textarea id="message" name="message"
+                      placeholder="Tell us about your idea..."
+                      required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;">
+            Send Your Enquiry ↗
+          </button>
+
+          <p id="formMessage" class="form-message" role="status"
+             aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="#home" class="logo">
+            <span class="logo-mark">N</span>
+            NexaTech
+          </a>
+          <p>
+            Building innovative digital solutions for a better tomorrow.
+            Let's create something extraordinary together.
+          </p>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="#careers">Careers</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">Our Mission</a>
+            <a href="#services">Our Expertise</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Follow Us</h4>
+          <div class="socials">
+            <a href="https://www.linkedin.com/" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/" aria-label="Instagram">◎</a>
+            <a href="https://www.youtube.com/" aria-label="YouTube">▶</a>
+          </div>
+          <p style="color:#9aabc9;font-size:12px;margin-top:16px;">
+            Let's connect and create.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> NexaTech. All rights reserved.</span>
+        <span>Designed with purpose. Built for impact.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // ---------- MOBILE NAVIGATION ----------
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close the mobile menu after selecting a section.
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // ---------- NAVBAR SCROLL EFFECT ----------
+    const navbar = document.querySelector(".navbar");
+    const backTop = document.getElementById("backTop");
+
+    function handleScroll() {
+      navbar.style.boxShadow = window.scrollY > 30
+        ? "0 8px 25px rgba(0,0,0,.15)"
+        : "none";
+
+      backTop.classList.toggle("visible", window.scrollY > 450);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // ---------- REVEAL ANIMATIONS ----------
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("show"));
+    }
+
+    // ---------- ANIMATED STATISTICS ----------
+    const counters = document.querySelectorAll("[data-target]");
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    function animateCounter(element) {
+      const target = Number(element.dataset.target);
+      const suffix = element.dataset.suffix || "";
+
+      if (reducedMotion) {
+        element.textContent = target + suffix;
+        return;
+      }
+
+      const duration = 1400;
+      const startTime = performance.now();
+
+      function updateCounter(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        element.textContent =
+          Math.round(target * eased) + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        }
+      }
+
+      requestAnimationFrame(updateCounter);
+    }
+
+    if ("IntersectionObserver" in window) {
+      const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(counter => counterObserver.observe(counter));
+    } else {
+      counters.forEach(animateCounter);
+    }
+
+    // ---------- ACTIVE NAVIGATION LINK ----------
+    const sections = document.querySelectorAll("main section[id]");
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.querySelectorAll("a").forEach(link => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + entry.target.id
+            );
+          });
+        }
+      });
+    }, { rootMargin: "-25% 0px -65% 0px" });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // ---------- CONTACT FORM ----------
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    contactForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !service || !message) {
+        formMessage.style.color = "#c62828";
+        formMessage.textContent = "Please complete all required fields.";
+        return;
+      }
+
+      // Frontend demonstration only. No message is sent to a server.
+      formMessage.style.color = "#087c56";
+      formMessage.textContent =
+        "Thanks, " + name + "! The form works, but sending enquiries " +
+        "requires connecting a backend or form service.";
+
+      // The collected data can later be sent to a real backend API.
+      console.log("Demo enquiry:", { name, email, service, message });
+    });
+
+    // ---------- AUTOMATIC COPYRIGHT YEAR ----------
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
